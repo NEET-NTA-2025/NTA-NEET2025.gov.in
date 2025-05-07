@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NEET (UG) – 2025 Score Card</title>
   <style>
     body {
@@ -30,12 +31,14 @@
     label {
       display: block;
       margin-top: 10px;
+      font-size: 16px;
     }
     input, select {
       width: 100%;
       padding: 8px;
       margin-top: 5px;
       box-sizing: border-box;
+      font-size: 14px;
     }
     button {
       margin-top: 20px;
@@ -44,6 +47,8 @@
       color: white;
       border: none;
       cursor: pointer;
+      width: 100%;
+      font-size: 16px;
     }
     button:hover {
       background-color: #003366;
@@ -53,11 +58,37 @@
       padding: 10px;
       background-color: #eee;
       margin-top: 20px;
+      font-size: 14px;
     }
     #result-image {
       display: none; /* Initially hidden */
       margin-top: 20px;
       text-align: center;
+    }
+    /* Header styling */
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #f8f9fa;
+      border-bottom: 1px solid #ccc;
+    }
+    .header-container img {
+      height: 60px;
+    }
+    .header-text {
+      text-align: center;
+    }
+    .header-text div {
+      font-weight: bold;
+      font-family: Arial, sans-serif;
+    }
+    .header-text .hindi {
+      font-size: 16px;
+    }
+    .header-text .english {
+      font-size: 18px;
     }
     /* Loading screen styles */
     #loading-screen {
@@ -102,6 +133,65 @@
       align-items: center;
       justify-content: center;
     }
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        padding: 10px;
+      }
+      .header-container img {
+        height: 40px;
+        margin: 5px 0;
+      }
+      .header-text .hindi {
+        font-size: 14px;
+      }
+      .header-text .english {
+        font-size: 16px;
+      }
+      form {
+        padding: 15px;
+        max-width: 100%;
+      }
+      label {
+        font-size: 14px;
+      }
+      input, select {
+        font-size: 12px;
+        padding: 6px;
+      }
+      button {
+        font-size: 14px;
+        padding: 8px;
+      }
+      .dob-container {
+        flex-direction: column;
+        gap: 5px;
+      }
+      .captcha-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .captcha-container img, .captcha-container svg {
+        margin-bottom: 10px;
+      }
+      .result-container {
+        flex-direction: column;
+      }
+      .result-container object {
+        width: 100%;
+        height: 300px;
+      }
+      .download-btn {
+        margin-left: 0;
+        margin-top: 10px;
+        width: 100%;
+        text-align: center;
+      }
+      footer {
+        font-size: 12px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -111,21 +201,21 @@
   </div>
 
   <!-- NEET 2025 Header -->
-  <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 30px; background-color: #f8f9fa; border-bottom: 1px solid #ccc;">
+  <div class="header-container">
     <!-- Left Logo -->
     <div>
-      <img src="banner-left.png" alt="Ministry of Health and Family Welfare" style="height: 60px;">
+      <img src="banner-left.png" alt="Ministry of Health and Family Welfare">
     </div>
   
     <!-- Center Text -->
-    <div style="text-align: center;">
-      <div style="font-weight: bold; font-size: 16px; font-family: Arial, sans-serif;">राष्ट्रीय पात्रता सह प्रवेश परीक्षा (स्नातक) - 2025</div>
-      <div style="font-weight: bold; font-size: 18px; font-family: Arial, sans-serif;">NATIONAL ELIGIBILITY CUM ENTRANCE TEST<br>(UG) - 2025</div>
+    <div class="header-text">
+      <div class="hindi">राष्ट्रीय पात्रता सह प्रवेश परीक्षा (स्नातक) - 2025</div>
+      <div class="english">NATIONAL ELIGIBILITY CUM ENTRANCE TEST<br>(UG) - 2025</div>
     </div>
   
     <!-- Right Logo -->
     <div>
-      <img src="banner-right.png" alt="National Testing Agency" style="height: 60px;">
+      <img src="banner-right.png" alt="National Testing Agency">
     </div>
   </div>
   
@@ -136,7 +226,7 @@
       <label for="appNo">Application No.</label>
       <input type="text" id="appNo" name="appNo" required>
       <label for="dob">Date of Birth</label>
-      <div style="display: flex; gap: 10px;">
+      <div class="dob-container" style="display: flex; gap: 10px;">
         <select name="day" id="day" required>
           <option value="">--Day--</option>
           <option value="01">01</option>
@@ -254,7 +344,7 @@
       <label for="mobile">Candidate Mobile / Alternate Mobile</label>
       <input type="tel" id="mobile" name="mobile">
       <label for="captcha">Enter Security Pin (Case Sensitive)<span style="color:red;">*</span></label>
-      <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+      <div class="captcha-container" style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
         <!-- Simulated captcha image -->
         <img src="captcha.png" alt="captcha" style="height: 40px;">
         <!-- Simulated refresh icon -->
