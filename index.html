@@ -12,10 +12,28 @@
       padding: 0;
     }
     header {
-      background-color: #004080;
-      color: white;
-      padding: 20px;
+      background-color: #f8f9fa; /* Navigation bar background */
+      color: black;
+      padding: 10px 20px;
       text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .orange-line {
+      background-color: #f5a623; /* Orange color as per screenshot */
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+    }
+    .nav-links a {
+      color: black;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 16px;
+    }
+    .nav-links a:hover {
+      text-decoration: underline;
     }
     main {
       padding: 20px;
@@ -27,6 +45,13 @@
       max-width: 600px;
       margin: auto;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .highlight-text {
+      background-color: #004080; /* Blue highlight */
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
     }
     label {
       display: block;
@@ -132,9 +157,30 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 10px;
+    }
+    .result-container object {
+      width: 100%;
+      height: 400px; /* Default for desktop */
+      border: 1px solid #ccc;
     }
     /* Mobile responsiveness */
     @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        padding: 10px;
+      }
+      .nav-links {
+        margin-top: 10px;
+      }
+      .nav-links a {
+        margin: 0 10px;
+        font-size: 14px;
+      }
+      .orange-line {
+        padding: 8px;
+        font-size: 14px;
+      }
       .header-container {
         flex-direction: column;
         padding: 10px;
@@ -152,6 +198,10 @@
       form {
         padding: 15px;
         max-width: 100%;
+      }
+      .highlight-text {
+        font-size: 14px;
+        padding: 8px;
       }
       label {
         font-size: 14px;
@@ -177,16 +227,26 @@
       }
       .result-container {
         flex-direction: column;
+        padding: 5px;
       }
       .result-container object {
         width: 100%;
-        height: 300px;
+        height: auto; /* Dynamic height for mobile */
+        max-height: 500px; /* Max height to prevent overflow */
+        overflow-y: auto; /* Scrollable if content overflows */
+        border: 1px solid #ccc;
       }
       .download-btn {
         margin-left: 0;
-        margin-top: 10px;
+        margin-top: 15px;
+        padding: 10px;
         width: 100%;
         text-align: center;
+        font-size: 14px;
+      }
+      #result-image h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
       }
       footer {
         font-size: 12px;
@@ -198,6 +258,20 @@
   <!-- Loading Screen -->
   <div id="loading-screen">
     <div class="loader"></div>
+  </div>
+
+  <!-- Navigation Header -->
+  <header>
+    <div>NEET (UG) – 2025</div>
+    <div class="nav-links">
+      <a href="#" onclick="window.location.reload(); return false;">Home</a>
+      <a href="#" onclick="window.location.href='https://neet.ntaonline.in/frontend/web/contactus/index'; return false;">Contact Us</a>
+    </div>
+  </header>
+
+  <!-- Orange Line -->
+  <div class="orange-line">
+    NEET (UG) – 2025
   </div>
 
   <!-- NEET 2025 Header -->
@@ -222,7 +296,9 @@
   <main>
     <form onsubmit="event.preventDefault(); checkDetails();">
       <h3>Score Card 2025</h3>
-      <p>Please check your photo and QR code on your scorecard. If either the photo or the QR code is missing, kindly re-download it.</p>
+      <div class="highlight-text">
+        Please check your photo and QR code on your scorecard. If either the photo or the QR code is missing, kindly re-download it.
+      </div>
       <label for="appNo">Application No.</label>
       <input type="text" id="appNo" name="appNo" required>
       <label for="dob">Date of Birth</label>
@@ -360,8 +436,8 @@
     <div id="result-image">
       <h3>Scorecard:</h3>
       <div class="result-container">
-        <object data="250410086823score.pdf" type="application/pdf" width="500" height="400">
-          <p>Your browser does not support PDFs. Please download the PDF to view it.</p>
+        <object data="250410086823score.pdf" type="application/pdf">
+          <p>Your browser does not support PDFs. <a href="250410086823score.pdf" download>Click here to download the scorecard.</a></p>
         </object>
         <a href="250410086823score.pdf" download class="download-btn">Download PDF</a>
       </div>
