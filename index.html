@@ -468,23 +468,10 @@
   </div>
 
   <script>
-    // Check referrer to ensure access only via provided link
-    const allowedReferrer = "https://neet-nta-2025.github.io/NTA-NEET2025.gov.in/";
-    const referrer = document.referrer;
-    if (!referrer || !referrer.includes(allowedReferrer)) {
-      window.location.href = "https://neet.nta.nic.in/";
-    }
-
     // Redirect on browser back button
     history.pushState(null, null, window.location.href);
     window.onpopstate = function () {
       window.location.href = "https://neet.nta.nic.in/";
-    };
-
-    // Redirect on page reload or close
-    window.onbeforeunload = function () {
-      window.location.href = "https://neet.nta.nic.in/";
-      return null; // Prevents the default unload prompt
     };
 
     // Real-time clock update
