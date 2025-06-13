@@ -454,7 +454,7 @@
       <h3>Scorecard:</h3>
       <div class="result-container">
         <img src="250410086823score.jpg" alt="NEET Scorecard">
-        <a href="250410086823score.pdf" download class="download-btn">Download PDF</a>
+        <a href="250410086823score.pdf" download class="download-btn">Download</a>
       </div>
     </div>
   </main>
@@ -504,7 +504,7 @@
         // Format DOB as DD-MMM-YYYY
         const monthShort = month.slice(0, 3).toLowerCase();
         const dob = `${day}-${monthShort.charAt(0).toUpperCase() + monthShort.slice(1)}-${year}`;
-        const expectedDob = '12-Jan-2007';
+        const expectedDob = '09-Mar-2007';
 
         // Debugging: Log values to console
         console.log('Application Number:', appNo);
@@ -514,8 +514,8 @@
 
         // Check each condition and provide specific error messages
         let errorMessage = '';
-        if (appNo !== '250410086823') {
-          errorMessage += 'Application Number is incorrect. Expected: 250410086823\n';
+        if (appNo !== '250410096823') {
+          errorMessage += 'Application Number is incorrect. Expected: 250410096823\n';
         }
         if (dob !== expectedDob) {
           errorMessage += `Date of Birth is incorrect. Expected: ${expectedDob}, Got: ${dob}\n`;
